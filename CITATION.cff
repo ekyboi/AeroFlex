@@ -1,1 +1,103 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: AeroFlux
+abstract: >-
+  A zero-dependency, zero-heap, deterministic 3D incompressible
+  Navier-Stokes solver in Go, with a hardware-accelerated data plane on
+  Apple Silicon via the Accelerate framework. Fluid state is held in an
+  off-heap mmap arena flanked by PROT_NONE guard pages; the timestep hot
+  path performs no Go heap allocation, and results are bit-for-bit
+  reproducible independent of worker count. Uses a staggered
+  Marker-and-Cell grid, semi-Lagrangian advection, symmetric Strang
+  splitting, and a pressure projection solved either by Red-Black
+  Gauss-Seidel or by a prefactorized Cholesky decomposition through
+  Accelerate's sparse solvers.
+type: software
+authors:
+  - family-names: Saini
+    given-names: Eklavya
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+version: 0.1.0
+date-released: "2026-09-16"
+repository-code: "https://github.com/ekyboi/AeroFlex"
+# license: MIT
+keywords:
+  - computational-fluid-dynamics
+  - navier-stokes
+  - fluid-simulation
+  - numerical-methods
+  - high-performance-computing
+  - go
+  - apple-silicon
+  - accelerate-framework
+  - deterministic-computing
+  - lock-free
+references:
+  - type: article
+    title: >-
+      Numerical Calculation of Time-Dependent Viscous Incompressible Flow
+      of Fluid with Free Surface
+    authors:
+      - family-names: Harlow
+        given-names: Francis H.
+      - family-names: Welch
+        given-names: J. Eddie
+    journal: The Physics of Fluids
+    volume: 8
+    issue: 12
+    start: 2182
+    end: 2189
+    year: 1965
+    doi: 10.1063/1.1761178
+    notes: Staggered Marker-and-Cell grid used for the velocity-pressure layout.
+  - type: article
+    title: Numerical Solution of the Navier-Stokes Equations
+    authors:
+      - family-names: Chorin
+        given-names: Alexandre Joel
+    journal: Mathematics of Computation
+    volume: 22
+    issue: 104
+    start: 745
+    end: 762
+    year: 1968
+    doi: 10.1090/S0025-5718-1968-0242392-2
+    notes: Fractional-step projection method used to enforce incompressibility.
+  - type: article
+    title: On the Construction and Comparison of Difference Schemes
+    authors:
+      - family-names: Strang
+        given-names: Gilbert
+    journal: SIAM Journal on Numerical Analysis
+    volume: 5
+    issue: 3
+    start: 506
+    end: 517
+    year: 1968
+    doi: 10.1137/0705041
+    notes: Symmetric operator splitting underlying the palindromic axis sweep.
+  - type: conference-paper
+    title: Stable Fluids
+    authors:
+      - family-names: Stam
+        given-names: Jos
+    collection-title: >-
+      Proceedings of the 26th Annual Conference on Computer Graphics and
+      Interactive Techniques (SIGGRAPH '99)
+    start: 121
+    end: 128
+    year: 1999
+    doi: 10.1145/311535.311548
+    notes: Unconditionally stable semi-Lagrangian advection scheme.
+  - type: book
+    title: Fluid Simulation for Computer Graphics
+    authors:
+      - family-names: Bridson
+        given-names: Robert
+    edition: "2"
+    publisher:
+      name: A K Peters/CRC Press
+    year: 2015
+    isbn: "9781482232837"
+    notes: Practical reference for the staggered-grid projection formulation.
 
