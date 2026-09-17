@@ -16,7 +16,6 @@ type: software
 authors:
   - family-names: Saini
     given-names: Eklavya
-    # orcid: "https://orcid.org/0000-0000-0000-0000"
 version: 0.1.0
 date-released: "2026-09-16"
 repository-code: "https://github.com/ekyboi/AeroFlex"
